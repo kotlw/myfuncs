@@ -1,0 +1,47 @@
+[project]
+name = "myfuncs"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Vladyslav Kotliar",email = "kotliarvladyslav@gmail.com"}
+]
+readme = "README.md"
+requires-python = "==3.12.8"
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+package-mode = false
+
+[tool.poetry.requires-plugins]
+poetry-plugin-export = ">=1.8"
+poetry-plugin-shell = "1.0.1"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.9.7"
+mypy = "^1.15.0"
+
+
+[tool.poetry.group.func1.dependencies]
+functions-framework = "^3.8.2"
+pydantic-settings = "^2.8.0"
+common = {git = "git@github.com:kotlw/common.git"}
+shared = { path = "./shared", develop = true }
+
+
+[tool.poetry.group.func2.dependencies]
+functions-framework = "^3.8.2"
+pydantic-settings = "^2.8.0"
+common = {git = "git@github.com:kotlw/common.git"}
+shared = { path = "./shared", develop = true  }
+
+
+[tool.mypy]
+mypy_path = "stubs"
+
+[virtualenvs]
+virtualenvs.in-project = true
